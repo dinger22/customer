@@ -2,13 +2,17 @@ package com.ioc.example.customer;
 
 public class CustomerBL {
 
+    DataAccess _dataAccess;
+
     public CustomerBL() {
 
     }
 
+    public CustomerBL(DataAccess dataAccess) {
+        _dataAccess = dataAccess;
+    }
+
     public String GetCustomerName(int id) {
-        // SOLID 里的D，Dependency Inversion Principle
-        DataAccess _dataAccess = DataAccessFactory.GetDataAccess();
         return _dataAccess.GetCustomerName(id);
     }
 }
@@ -27,8 +31,8 @@ class DataAccessImpl implements DataAccess// would be a new file in real app
     }
 }
 
-class DataAccessFactory {
-    public static DataAccess GetDataAccess() {
-        return new DataAccessImpl();
-    }
-}
+// class DataAccessFactory {
+// public static DataAccess GetDataAccess() {
+// return new DataAccessImpl();
+// }
+// }
