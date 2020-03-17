@@ -19,6 +19,7 @@ class DataAccess //would be a new file in real app
 {
     public DataAccess()
     {
+        
     }
 
     public String GetCustomerName(int id) {
